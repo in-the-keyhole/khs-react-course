@@ -1,4 +1,4 @@
-##Installation
+## Installation
 
 Node.js is required, then..
 
@@ -7,7 +7,7 @@ Node.js is required, then..
 3. Browser should open on http://localhost:3000
 
 
-##React Documentation
+## React Documentation
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
