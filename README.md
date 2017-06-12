@@ -3,7 +3,7 @@
 Node.js is required, then..
 
 1. Clone project 
-2. > npm start 
+2. npm start from a command shell 
 3. Browser should open on http://localhost:3000
 
 
