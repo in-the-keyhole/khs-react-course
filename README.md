@@ -1,3 +1,14 @@
+##Installation
+
+Node.js is required, then..
+
+1. Clone project 
+2. > npm start 
+3. Browser should open on http://localhost:3000
+
+
+##React Documentation
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
