@@ -3,47 +3,59 @@ import '../App.css'
 import Header from './MovieHeader.js'
 import MovieList from './MovieList'
 import api from '../api/instance'
-class Movies extends Component {
-  static searchText = 'a'
 
-  static state = { movies: null }
+class Movies extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { movies: null, searchText: '', loading: true }
+  }
 
   componentDidMount() {
     this.movieList()
   }
 
   search = e => {
-    if (e.key === 'Enter') {
-      Movies.searchText = e.target.value
-      this.movieList()
-    }
+    console.log(e.target.value)
+    const searchText = e.target.value
+    this.setState(() => ({
+      searchText,
+      filteredMovies: this.state.movies.filter(
+        movie =>
+          movie.title.toLowerCase().match(searchText.toLowerCase()) != null
+      )
+    }))
   }
 
   movieList = async () => {
     try {
       const response = await api.get('nowPlaying')
       const { results: movies } = response.data
-      this.setState(() => {
-        return { movies }
-      })
+      this.setState(() => ({ movies, filteredMovies: movies, loading: false }))
     } catch (e) {
       console.error(e)
+      this.setState(() => ({ error: 'Cannot fetch movies', loading: false }))
     }
   }
 
   render() {
-    if (this.state && this.state.movies) {
-      // Return HTML Display Header and Items
-      // movies are passed as props to movielist because it doesn't handle any state
-      // it can be functional and also handle when no results are displayed (i.e. !movies)
+    const { loading, error, filteredMovies, searchText } = this.state
+    if (loading) return <div>Loading movies...</div>
+    if (error)
       return (
-        <div className="movie-container" onKeyUp={this.search}>
-          <Header searchText={Movies.searchText} />
-          <MovieList movies={this.state.movies} />
+        <div>
+          {error}
         </div>
       )
-    }
-    return <div>Nothing for now.</div>
+    // Return HTML Display Header and Items
+    // movies are passed as props to movielist because it doesn't handle any state
+    // it can be functional and also handle when no results are displayed (i.e. !movies)
+    return (
+      <div className="movie-container">
+        <Header searchText={searchText} search={this.search} />
+        <MovieList movies={filteredMovies} />
+      </div>
+    )
   }
 }
 

@@ -7,19 +7,18 @@ import MovieDetail from './movie/MovieDetail.js'
 class App extends Component {
   render() {
     const Main = () =>
-      <main>
+      <div>
         <Switch>
           <Route exact path="/" component={Movies} />
           <Route path="/about/:id" component={MovieDetail} />
+          <Route component={Movies} />
         </Switch>
-      </main>
+      </div>
 
     return (
       <div>
         <BrowserRouter>
-          <div>
-            <Main />
-          </div>
+          <Main />
         </BrowserRouter>
       </div>
     )
