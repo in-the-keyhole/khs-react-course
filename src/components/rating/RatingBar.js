@@ -1,45 +1,33 @@
 import React from 'react'
-import styled from 'styled-components'
+import './rating.css'
+import classnames from 'classnames'
 
-const Wrapper = styled.span`
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  padding: 10px;
+const Star = props => {
+  const starClass =
+    props.stars > props.ordinal - 1
+      ? classnames(props.className, 'fa-star')
+      : classnames(props.className, 'fa-star-o')
 
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  cursor: pointer;
-`
-
-const Star = styled.span`
-  transition: fill 0.25s;
-  width: 48px;
-  height: 48px;
-
-  :hover,
-  :hover ~ .star {
-    color: yellow;
-  }
-`
+  return <i className={starClass} />
+}
 
 const RatingBar = ({ stars, ratingChanged }) =>
-  <Wrapper>
-    <Star onClick={() => alert(5)}>
-      <i className="fa fa-lg fa-star-o" />
-    </Star>
-    <Star onClick={() => alert(4)}>
-      <i className="fa fa-lg fa-star-o" />
-    </Star>
-    <Star onClick={() => alert(3)}>
-      <i className="fa fa-lg fa-star" />
-    </Star>
-    <Star onClick={() => alert(2)}>
-      <i className="fa fa-lg fa-star" />
-    </Star>
-    <Star onClick={() => alert(1)}>
-      <i className="fa fa-lg fa-star" />
-    </Star>
-  </Wrapper>
+  <span className="rating">
+    <span className="star" onClick={() => ratingChanged(5)}>
+      <Star stars={stars} className="fa fa-lg" ordinal={5} />
+    </span>
+    <span className="star" onClick={() => ratingChanged(4)}>
+      <Star stars={stars} className="fa fa-lg" ordinal={4} />
+    </span>
+    <span className="star" onClick={() => ratingChanged(3)}>
+      <Star stars={stars} className="fa fa-lg" ordinal={3} />
+    </span>
+    <span className="star" onClick={() => ratingChanged(2)}>
+      <Star stars={stars} className="fa fa-lg" ordinal={2} />
+    </span>
+    <span className="star" onClick={() => ratingChanged(1)}>
+      <Star stars={stars} className="fa fa-lg" ordinal={1} />
+    </span>
+  </span>
 
 export default RatingBar

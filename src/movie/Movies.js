@@ -17,14 +17,41 @@ class Movies extends Component {
 
   search = e => {
     const searchText = e.target.value
-    console.log(searchText)
     this.setState(() => ({
-      searchText,
+      searchText
+    }))
+  }
+
+  applySearch = () => {
+    this.setState(() => ({
       filteredMovies: this.state.movies.filter(
         movie =>
-          movie.title.toLowerCase().match(searchText.toLowerCase()) != null
+          movie.title
+            .toLowerCase()
+            .match(this.state.searchText.toLowerCase()) != null
       )
     }))
+  }
+
+  ratingChanged = async (movie, rating) => {
+    //find movie and update rating
+    movie.rating = rating
+
+    const { movies } = this.state
+    this.setState(() => ({
+      movies: [
+        ...movies.slice(0, movies.indexOf(movie)), // take everything up to (but not including) the target person
+        movie, // shove in the update in place
+        ...movies.slice(movies.indexOf(movie) + 1) // spread (...) everything after
+      ]
+    }))
+
+    try {
+      // let body = JSON.stringify(movie)
+      // await api.put('movies/' + movie.id, body)
+    } catch (e) {
+      console.error(e)
+    }
   }
 
   movieList = async () => {

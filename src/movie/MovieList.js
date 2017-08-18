@@ -7,14 +7,15 @@ const MovieList = ({ movies, ratingChanged }) => {
     return <p>No results found.</p>
   }
 
-  // console.log(movies)
-
   return (
     <ul>
       {movies.map(movie =>
         <li key={movie.id}>
           <Movie title={movie.title} poster={movie.poster_path} id={movie.id} />
-          <RatingBar stars={movie.vote_average} ratingChanged={ratingChanged} />
+          <RatingBar
+            stars={movie.rating}
+            ratingChanged={rating => ratingChanged(movie, rating)}
+          />
         </li>
       )}
     </ul>
