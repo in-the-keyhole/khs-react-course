@@ -18,31 +18,27 @@ class Movies extends Component {
   search = e => {
     const searchText = e.target.value
     this.setState(() => ({
-      searchText
-    }))
-  }
-
-  applySearch = () => {
-    this.setState(() => ({
+      searchText,
       filteredMovies: this.state.movies.filter(
         movie =>
-          movie.title
-            .toLowerCase()
-            .match(this.state.searchText.toLowerCase()) != null
+          movie.title.toLowerCase().match(searchText.toLowerCase()) != null
       )
     }))
   }
 
+  /**
+   * find movie and update rating on server
+   */
   ratingChanged = async (movie, rating) => {
-    //find movie and update rating
-    const oldMovie = movie // save off movie in case update fails
+    // save copy of movie in case update fails
+    const oldMovie = movie
 
     //update rating
     movie.rating = rating
 
     const { movies } = this.state
+
     // optimistic update
-    // updating state can be a little verbose, as state is immutable
     this.setState(() => ({
       movies: [
         ...movies.slice(0, movies.indexOf(movie)), // take everything up to (but not including) the target person
@@ -53,7 +49,7 @@ class Movies extends Component {
 
     try {
       let body = JSON.stringify(movie)
-      await api.put('movies/' + movie.id, body)
+      await api.put(`movies/${movie.id}`, body)
     } catch (e) {
       // didn't work, change it back
       this.setState(() => ({
@@ -87,6 +83,7 @@ class Movies extends Component {
           {error}
         </div>
       )
+
     // Return HTML Display Header and Items
     // movies are passed as props to movielist because it doesn't handle any state
     // it can be functional and also handle when no results are displayed (i.e. !movies)

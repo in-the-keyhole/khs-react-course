@@ -20,7 +20,7 @@ class MovieDetail extends Component {
 
   render() {
     const { movie, loading, error } = this.state
-    const { history } = this.props
+    const { history } = this.props // react-router-dom provides us with history in props
 
     if (movie) {
       console.log(movie)
@@ -34,7 +34,7 @@ class MovieDetail extends Component {
     if (error) {
       return (
         <h4>
-          Movie details couldn't be loaded.{' '}
+          Oops! Movie details couldn't be loaded.{' '}
           <a style={{ cursor: 'pointer' }} onClick={() => history.goBack()}>
             Go back.
           </a>
