@@ -4,7 +4,7 @@ const MovieHeader = ({ searchText, search }) => {
   return (
     <div>
       <h2>Now Playing</h2>
-      <button>Logout</button>
+      <button>Login</button>
       <input
         autoFocus
         value={searchText}

@@ -31,7 +31,6 @@ const LoginForm = props => {
     values,
     touched,
     errors,
-    dirty,
     handleChange,
     handleBlur,
     handleSubmit,

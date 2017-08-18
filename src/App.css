@@ -1,36 +1,7 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
 h2 {
@@ -39,6 +10,7 @@ h2 {
 }
 
 .movie-container {
+  background-color: black;
 }
 
 .movie-container ul {
@@ -65,7 +37,7 @@ h2 {
   background: #000;
   color: #fff;
   position: absolute;
-  right: 85px;
+  right: 95px;
   top: 10px;
 }
 
@@ -76,7 +48,10 @@ h2 {
   border: none;
   color: white;
   background-color: black;
-  height: 26px;
+  height: 33px;
+  padding-top: 6px;
+  line-height: 21px;
+  width: auto;
   font-weight: bold;
 }
 
