@@ -6,23 +6,23 @@ import TextInput from '../components/forms/TextInput'
 
 const formikEnhancer = Formik({
   validationSchema: Yup.object().shape({
-    firstName: Yup.string()
-      .min(2, "C'mon, your name is longer than that")
-      .required('First name is required.'),
-    lastName: Yup.string()
-      .min(2, "C'mon, your name is longer than that")
-      .required('Last name is required.'),
-    email: Yup.string()
-      .email('Invalid email address')
-      .required('Email is required!')
+    username: Yup.string()
+      .min(3, "Your initials wouldn't make a very good username...")
+      .required('Username is required.'),
+    password: Yup.string()
+      .min(6, 'Your password shoud be at least 6 characters.')
+      .required('Password is required.')
   }),
   mapPropsToValues: ({ user }) => ({
     ...user
   }),
-  handleSubmit: payload => {
-    alert(payload.username)
-    // isSubmitting(false)
+  handleSubmit: (values, { setSubmitting }) => {
+    setTimeout(() => {
+      alert(JSON.stringify(values, null, 2))
+      setSubmitting(false)
+    }, 1000)
   },
+  validateOnChange: true,
   displayName: 'LoginForm'
 })
 
@@ -59,12 +59,8 @@ const LoginForm = props => {
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <button
-        type="submit"
-        className="btn btn-default"
-        disabled={isSubmitting || !dirty}
-      >
-        Submit
+      <button type="submit" className="btn btn-default" disabled={isSubmitting}>
+        Login
       </button>
     </form>
   )
