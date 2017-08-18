@@ -40,12 +40,12 @@ class MovieDetail extends Component {
 
     return (
       <div className="movie-detail">
-        <h2>
-          {movie.title}
-        </h2>
         <h3>
-          {movie.overview}
+          {movie.title}
         </h3>
+        <h4>
+          {movie.overview}
+        </h4>
         <Link to="/">
           <span className="close" />
         </Link>

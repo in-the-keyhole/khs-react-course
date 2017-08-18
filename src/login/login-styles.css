@@ -1,0 +1,62 @@
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+#page-wrap {
+  color: black;
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  -moz-box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px black;
+}
+
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 125px;
+  z-index: 1;
+}
+
+.input-error {
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  color: #ffffff;
+  background-color: #3093c7;
+  border: 1px solid #25729a;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  font-weight: bold;
+  color: red;
+}
