@@ -3,7 +3,7 @@ import '../App.css'
 import Header from './MovieHeader.js'
 import MovieList from './MovieList'
 import api from '../api/instance'
-import { Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 class Movies extends Component {
   constructor(props) {
@@ -52,14 +52,16 @@ class Movies extends Component {
     // movies are passed as props to movielist because it doesn't handle any state
     // it can be functional and also handle when no results are displayed (i.e. !movies)
     return (
-      <Row>
-        <Col md={12}>
-          <div className="movie-container">
-            <Header searchText={searchText} search={this.search} />
-            <MovieList movies={filteredMovies} />
-          </div>
-        </Col>
-      </Row>
+      <Grid>
+        <Row>
+          <Col md={12}>
+            <div className="movie-container">
+              <Header searchText={searchText} search={this.search} />
+              <MovieList movies={filteredMovies} />
+            </div>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

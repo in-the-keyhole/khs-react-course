@@ -2,16 +2,11 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #000 !important;
   color: #fff !important;
-  overflow-x: hidden;
 }
 
 h2 {
   font-size: 1.2em;
   text-transform: uppercase;
-}
-
-.movie-container {
-  background-color: black;
 }
 
 .movie-container ul {
