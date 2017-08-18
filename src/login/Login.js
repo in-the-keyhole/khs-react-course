@@ -7,11 +7,16 @@ export default class Login extends Component {
   render() {
     return (
       <div>
-        <img class="logo" src={`${process.env.PUBLIC_URL}/images/logo.gif`} />
-        <div className="login-body">
-          <div className="login-content">
-            <LoginForm user={{ username: '', password: '' }} />
-          </div>
+        <div id="page-wrap">
+          <LoginForm user={{ username: 'react', password: 'course' }} />
+        </div>
+
+        <div id="bg">
+          <img
+            src={`${process.env
+              .PUBLIC_URL}/images/backdrops/login-backdrop.jpg`}
+            alt=""
+          />
         </div>
       </div>
     )

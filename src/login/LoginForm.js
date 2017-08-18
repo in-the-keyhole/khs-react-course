@@ -20,7 +20,7 @@ const formikEnhancer = Formik({
     ...user
   }),
   handleSubmit: payload => {
-    alert(payload.email)
+    alert(payload.username)
     // isSubmitting(false)
   },
   displayName: 'LoginForm'
@@ -35,7 +35,6 @@ const LoginForm = props => {
     handleChange,
     handleBlur,
     handleSubmit,
-    handleReset,
     isSubmitting
   } = props
   return (
@@ -43,8 +42,8 @@ const LoginForm = props => {
       <TextInput
         id="username"
         type="text"
-        label="First Name"
-        placeholder="John"
+        label="Username"
+        placeholder="JohnSmith@gmail.com"
         error={touched.username && errors.username}
         value={values.username}
         onChange={handleChange}
@@ -52,15 +51,19 @@ const LoginForm = props => {
       />
       <TextInput
         id="password"
-        type="text"
-        label="Last Name"
-        placeholder="Doe"
+        type="password"
+        label="Password"
+        placeholder="password"
         error={touched.password && errors.password}
         value={values.password}
         onChange={handleChange}
         onBlur={handleBlur}
       />
-      <button type="submit" className="btn btn-default" disabled={isSubmitting}>
+      <button
+        type="submit"
+        className="btn btn-default"
+        disabled={isSubmitting || !dirty}
+      >
         Submit
       </button>
     </form>

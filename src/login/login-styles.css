@@ -1,73 +1,34 @@
-.logo {
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#bg img {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 125px;
-}
-
-.login-body {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  color: black;
-  background-image: url('/public/images/backdrops/login-backdrop.jpg');
-  background-size: cover;
-}
-
-.login-content {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: auto;
-  width: 15%;
-  background-color: #f3f3f3;
-  padding: 30px;
+  min-width: 50%;
+  min-height: 50%;
 }
 
-h1 {
-  font-size: 1em;
+#page-wrap {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  -moz-box-shadow: 0 0 20px black;
+  -webkit-box-shadow: 0 0 20px black;
+  box-shadow: 0 0 20px black;
 }
-
-.login-form {
-}
-
-label {
-  display: block;
-  font-size: .75em;
-  margin-bottom: 2px;
-}
-
-.form-group {
-  margin-bottom: 10px;
-}
-
-input {
-  font-size: 16px;
-  border: 1px solid #b3b3b3;
-  display: block;
-  width: 100%;
-  line-height: 18px;
-  padding: 10px 11px;
-  height: 30px;
-}
-
-.input-error {
-  color: red;
-  font-size: 12px;
-}
-
-button {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  color: #ffffff;
-  background-color: #3093c7;
-  border: 1px solid #25729a;
-}
-
-button:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-}
-
-.errorMessage {
-  font-weight: bold;
-  color: red;
+p {
+  font: 15px/2 Georgia, Serif;
+  margin: 0 0 30px 0;
+  text-indent: 40px;
 }
