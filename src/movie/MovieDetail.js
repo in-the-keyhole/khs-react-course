@@ -14,12 +14,13 @@ class MovieDetail extends Component {
       const movie = response.data
       this.setState(() => ({ movie, loading: false }))
     } catch (e) {
-      this.setState(() => ({ error: e, loading: false }))
+      this.setState(() => ({ error: true, loading: false }))
     }
   }
 
   render() {
     const { movie, loading, error } = this.state
+    const { history } = this.props
 
     if (movie) {
       console.log(movie)
@@ -32,9 +33,12 @@ class MovieDetail extends Component {
 
     if (error) {
       return (
-        <p>
-          {error}
-        </p>
+        <h4>
+          Movie details couldn't be loaded.{' '}
+          <a style={{ cursor: 'pointer' }} onClick={() => history.goBack()}>
+            Go back.
+          </a>
+        </h4>
       )
     }
 
