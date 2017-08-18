@@ -21,7 +21,6 @@ h2 {
   display: flex;
 
   flex-flow: row wrap;
-  /*justify-content: space-around;*/
 }
 
 .movie-container li {

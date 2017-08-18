@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const MovieHeader = ({ searchText, search }) => {
   return (
     <div>
-      <h2>Now Playing</h2>
+      <h3>Now Playing</h3>
       <Link to={`/login`}>
         <button>Login</button>
       </Link>
