@@ -1,31 +1,14 @@
-import React from 'react';
-import '../App.css';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import {
-  Link
-} from 'react-router-dom';
-
-function Movie(props) {
-
-  const link = "/about/" + props.id;
-
-
-
-  return (
-
-    <div className="movie-detail">
-
-
-    <Link to={link}>
-          <img src={props.poster} alt="Poster" />
+const Movie = props =>
+  <div className="movie-detail">
+    <Link to={`/about/${props.id}`}>
+      <img
+        src={`${process.env.PUBLIC_URL}/images/posters${props.poster}`}
+        alt={`Poster for ${props.title}`}
+      />
     </Link>
- 
-
-
-    </div>
-
-  );
-
-}
+  </div>
 
 export default Movie

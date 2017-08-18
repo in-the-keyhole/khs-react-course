@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
+    "cors": "^2.8.4",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -10,10 +13,16 @@
     "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "body-parser": "^1.17.2",
+    "jsonwebtoken": "^7.4.3",
+    "npm-run-all": "^4.0.2",
+    "react-scripts": "0.9.5",
+    "underscore": "^1.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "startreact": "react-scripts start",
+    "start": "npm-run-all --parallel api startreact",
+    "api": "node api/server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
