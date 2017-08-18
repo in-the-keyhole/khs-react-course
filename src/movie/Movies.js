@@ -35,9 +35,14 @@ class Movies extends Component {
 
   ratingChanged = async (movie, rating) => {
     //find movie and update rating
+    const oldMovie = movie // save off movie in case update fails
+
+    //update rating
     movie.rating = rating
 
     const { movies } = this.state
+    // optimistic update
+    // updating state can be a little verbose, as state is immutable
     this.setState(() => ({
       movies: [
         ...movies.slice(0, movies.indexOf(movie)), // take everything up to (but not including) the target person
@@ -47,9 +52,17 @@ class Movies extends Component {
     }))
 
     try {
-      // let body = JSON.stringify(movie)
-      // await api.put('movies/' + movie.id, body)
+      let body = JSON.stringify(movie)
+      await api.put('movies/' + movie.id, body)
     } catch (e) {
+      // didn't work, change it back
+      this.setState(() => ({
+        movies: [
+          ...movies.slice(0, movies.indexOf(movie)), // take everything up to (but not including) the target person
+          oldMovie, // shove in the update in place
+          ...movies.slice(movies.indexOf(movie) + 1) // spread (...) everything after
+        ]
+      }))
       console.error(e)
     }
   }
