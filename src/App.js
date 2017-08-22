@@ -4,15 +4,16 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Movies from './movie/Movies'
 import MovieDetail from './movie/MovieDetail'
 import Login from './login/Login'
+import PrivateRoute from './components/PrivateRoute'
 
 class App extends Component {
   render() {
     const Main = () =>
       <Switch>
-        <Route exact path="/" component={Movies} />
-        <Route path="/about/:id" component={MovieDetail} />
+        <PrivateRoute exact path="/" component={Movies} />
+        <PrivateRoute path="/about/:id" component={MovieDetail} />
         <Route path="/login" component={Login} />
-        <Route component={Movies} />
+        <PrivateRoute component={Movies} />
       </Switch>
 
     return (

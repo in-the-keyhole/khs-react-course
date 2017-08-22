@@ -1,13 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import AuthButton from '../components/AuthButton'
 const MovieHeader = ({ searchText, search }) => {
   return (
     <div>
       <h3>Now Playing</h3>
-      <Link to={`/login`}>
-        <button>Login</button>
-      </Link>
+      <AuthButton />
       <input
         autoFocus
         value={searchText}

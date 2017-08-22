@@ -1,7 +1,6 @@
 import React from 'react'
 import { Formik } from 'formik'
 import Yup from 'yup'
-
 import TextInput from '../components/forms/TextInput'
 
 const formikEnhancer = Formik({
@@ -16,11 +15,9 @@ const formikEnhancer = Formik({
   mapPropsToValues: ({ user }) => ({
     ...user
   }),
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2))
-      setSubmitting(false)
-    }, 1000)
+  handleSubmit: (values, { setSubmitting, props: { login } }) => {
+    login(values)
+    setSubmitting(false)
   },
   validateOnChange: true,
   displayName: 'LoginForm'
