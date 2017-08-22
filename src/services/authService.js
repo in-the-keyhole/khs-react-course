@@ -7,7 +7,7 @@ export const authenticate = async user => {
   const response = await api.post('authenticate', body)
   currentUser = response.data
   if (currentUser) {
-    localStorage.setItem('currentUser', currentUser)
+    localStorage.setItem('currentUser', JSON.stringify(currentUser))
     return Promise.resolve()
   } else {
     return Promise.reject()
@@ -15,7 +15,6 @@ export const authenticate = async user => {
 }
 
 export const isLoggedIn = () => {
-  console.log(currentUser)
   return currentUser != null
 }
 

@@ -77,6 +77,7 @@ class Movies extends Component {
   render() {
     const { loading, error, filteredMovies, searchText } = this.state
     if (loading) return <div>Loading movies...</div>
+
     if (error)
       return (
         <div>

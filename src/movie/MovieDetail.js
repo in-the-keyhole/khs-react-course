@@ -19,6 +19,7 @@ class MovieDetail extends Component {
   }
 
   render() {
+    // object destructuring thanks to ES6
     const { movie, loading, error } = this.state
     const { history } = this.props // react-router-dom provides us with history in props
 
