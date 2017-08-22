@@ -44,10 +44,15 @@ export default class Login extends Component {
           />
           <div id="page-wrap">
             {loginError &&
-              <p className="text-danger">Username or password is invalid.</p>}
+              <div>
+                <p className="text-danger">Username or password is invalid.</p>
+                <p className="text-info">
+                  Hint: username/password => jdoe/password
+                </p>
+              </div>}
             <LoginForm
               login={this.login}
-              user={{ username: 'react', password: 'course' }}
+              user={{ username: 'jdoe', password: 'password' }}
             />
           </div>
 

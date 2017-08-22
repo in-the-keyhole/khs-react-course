@@ -23,11 +23,6 @@ class MovieDetail extends Component {
     const { movie, loading, error } = this.state
     const { history } = this.props // react-router-dom provides us with history in props
 
-    if (movie) {
-      console.log(movie)
-      console.log(`images/posters${movie.poster_path}`)
-    }
-
     if (loading) {
       return <h1>Loading...</h1>
     }
