@@ -7,6 +7,8 @@ The project utilizes the [TMDb API](https://www.themoviedb.org/).
 ![Screenshot](screenshot.png)
 <sup>Note: the image shown above is not owned by Keyhole, and all copyrights belong to their respective owners. The image used here is only for education and is not intended to generate income.</sup>
 
+This content is from [Keyhole Software](https://keyholesoftware.com). We love knowledge transfer!
+
 ## Comparison to Angular
 
 As a learning tool, this application is in direct contrast to another application written with Angular 2. View that comparison application [here](https://github.com/in-the-keyhole/angular2-now-playing). We strive to be technology agnostic and this allows for a good learning comparison between the two popular approaches.
