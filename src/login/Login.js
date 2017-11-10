@@ -12,7 +12,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      redirectToReferrer: true,
+      redirectToReferrer: false,
       loginError: false
     }
   }
